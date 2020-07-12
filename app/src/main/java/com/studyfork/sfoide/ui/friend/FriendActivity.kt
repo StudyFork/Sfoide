@@ -1,6 +1,7 @@
 package com.studyfork.sfoide.ui.friend
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -20,6 +21,8 @@ import com.studyfork.sfoide.ui.utils.EventObserver
 class FriendActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFriendBinding
+
+    private var lastBackPressed: Long = 0L
 
     private val viewModel: FriendViewModel by viewModels {
         object : ViewModelProvider.Factory {
@@ -66,5 +69,20 @@ class FriendActivity : AppCompatActivity() {
 
     private fun navigateFriendDetailActivity(friend: Friend) {
         startActivity(FriendDetailActivity.createIntent(this, friend))
+    }
+
+    override fun onBackPressed() {
+        val current = System.currentTimeMillis()
+        val term = current - lastBackPressed
+        if (term > TWO_SECONDS) {
+            Toast.makeText(this, "뒤로가기를 한번 더 눌러주세요", Toast.LENGTH_SHORT).show()
+            lastBackPressed = current
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    companion object {
+        private const val TWO_SECONDS = 2000
     }
 }
