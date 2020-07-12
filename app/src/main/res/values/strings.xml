@@ -4,4 +4,6 @@
     <string name="email_format">📧 : %s</string>
     <string name="cell_format">☎️️ : %s</string>
     <string name="phone_format">📱 : %s</string>
+
+    <string name="back_pressed_alert">"뒤로 버튼을 한번 더 눌러주세"</string>
 </resources>
