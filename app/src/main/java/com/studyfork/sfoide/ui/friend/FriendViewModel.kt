@@ -3,8 +3,9 @@ package com.studyfork.sfoide.ui.friend
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
+import com.studyfork.sfoide.ui.mapper.toPresentation
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.ui.utils.Event
 
 class FriendViewModel(
@@ -32,7 +33,8 @@ class FriendViewModel(
             itemCount = itemCount,
             onSuccess = { friends ->
                 _loading.value = false
-                _friendList.value = (_friendList.value ?: emptyList()) + friends
+                _friendList.value =
+                    (_friendList.value ?: emptyList()) + friends.map { it.toPresentation() }
             },
             onError = {
                 _loading.value = false

@@ -1,7 +1,7 @@
 package com.studyfork.sfoide.data.datasource
 
 import com.studyfork.sfoide.data.mapper.toEntity
-import com.studyfork.sfoide.ui.model.Friend
+import com.studyfork.sfoide.data.model.FriendData
 import com.studyfork.sfoide.data.remote.api.FriendApi
 import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
 import com.studyfork.sfoide.data.remote.response.FriendsResponse
@@ -16,7 +16,7 @@ class RemoteFriendDataSourceImpl(
     override fun getFriends(
         pageNumber: Int,
         itemCount: Int,
-        onSuccess: (friends: List<Friend>) -> Unit,
+        onSuccess: (friends: List<FriendData>) -> Unit,
         onError: (error: Throwable) -> Unit
     ) {
         friendApi.getFriends(
