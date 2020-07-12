@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">Sfoide</string>
+
+    <string name="male">🙋‍♂</string>
+    <string name="female">🙋‍♀</string>
+
+    <string name="telephone">☎️</string>
+    <string name="mobile_phone">📱</string>
+    <string name="email">📧</string>
+
+    <string name="au">🇦🇺</string>
+    <string name="br">🇧🇷</string>
+    <string name="ca">🇨🇦</string>
+    <string name="ch">🇨🇭</string>
+    <string name="de">🇩🇪</string>
+    <string name="dk">🇩🇰</string>
+    <string name="es">🇪🇸</string>
+    <string name="fi">🇫🇮</string>
+    <string name="fr">🇫🇷</string>
+    <string name="gb">🇬🇧</string>
+    <string name="ie">🇮🇪</string>
+    <string name="ir">🇮🇷</string>
+    <string name="no">🇳🇴</string>
+    <string name="nl">🇳🇱</string>
+    <string name="nz">🇳🇿</string>
+    <string name="tr">🇹🇷</string>
+    <string name="us">🇺🇸</string>
 </resources>

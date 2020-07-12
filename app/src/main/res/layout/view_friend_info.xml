@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friend"
+            type="com.studyfork.sfoide.ui.model.Friend" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <LinearLayout
+            android:id="@+id/ll_friend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_friend_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_friend_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:nameAndAge="@{friend}"
+                tools:text="JosephTaylor(59)" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_friend_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:gender="@{friend.gender}"
+                tools:text="@string/male" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_friend_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:country="@{friend.country}"
+                tools:text="@string/us" />
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_friend_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:email="@{friend.email}"
+            app:layout_constraintBottom_toTopOf="@id/tv_friend_telephone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_friend"
+            tools:text="abc123@gmail.com" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_friend_telephone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_friend_mobile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_friend_email"
+            app:telephone="@{friend.telephone}"
+            tools:text="(123)-123-1231" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_friend_mobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_friend_telephone"
+            app:mobile="@{friend.mobilePhone}"
+            tools:text="(123)-123-2323" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
