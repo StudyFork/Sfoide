@@ -36,7 +36,6 @@ class FriendViewModel(
             },
             onError = {
                 _loading.value = false
-                // todo
             }
         )
     }

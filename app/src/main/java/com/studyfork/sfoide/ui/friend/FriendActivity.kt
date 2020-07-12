@@ -39,6 +39,7 @@ class FriendActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_friend)
         binding.lifecycleOwner = this
+        binding.vm = viewModel
 
         initRecyclerView()
         observeViewModel()
