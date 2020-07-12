@@ -53,6 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:onClick="@{(v) -> model.goToCall(v.getContext())}"
                         android:text="@{@string/cell_format(model.userItem.cell)}"
                         tools:text="\u260E\uFE0F : cell " />
 
@@ -61,6 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:onClick="@{(v) -> model.goToPhone(v.getContext())}"
                         android:text="@{@string/phone_format(model.userItem.phone)}"
                         tools:text="\uD83D\uDCF1 : phone" />
 
@@ -68,6 +70,7 @@
                         style="@style/TextStyle.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="@{(v) -> model.goToEmail(v.getContext())}"
                         android:text="@{@string/email_format(model.userItem.email)}"
                         tools:text="\uD83D\uDCE7 : email " />
                 </LinearLayout>
