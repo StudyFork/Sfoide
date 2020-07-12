@@ -7,7 +7,7 @@ import com.studyfork.sfoide.data.remote.response.FriendsResponse
 fun FriendsResponse.Result.toEntity(): Friend {
     return Friend(
         id = this.login?.uuid ?: "",
-        thumbnail = this.picture?.thumbnail ?: "",
+        thumbnail = this.picture?.large ?: "",
         name = this.name.toString(),
         age = this.dob?.age ?: 0,
         gender = this.gender ?: "",
