@@ -4,6 +4,7 @@ import android.app.Application
 import com.studyfork.sfoide.di.appModule
 import com.studyfork.sfoide.di.networkModule
 import com.studyfork.sfoide.di.repositoryModule
+import com.studyfork.sfoide.di.viewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
@@ -33,7 +34,8 @@ class SfoidApplication : Application() {
                 listOf(
                     appModule,
                     networkModule,
-                    repositoryModule
+                    repositoryModule,
+                    viewModel
                 )
             )
         }
