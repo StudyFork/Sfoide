@@ -16,8 +16,8 @@ fun FriendsResponse.Result.toEntity(): Friend {
         telephone = this.phone ?: "",
         mobilePhone = this.cell ?: "",
         coordinates = Coordinates(
-            latitude = this.location?.coordinates?.latitude ?: "",
-            longitude = this.location?.coordinates?.longitude ?: ""
+            latitude = this.location?.coordinates?.latitude?.toDouble() ?: 0.0,
+            longitude = this.location?.coordinates?.longitude?.toDouble() ?: 0.0
         )
     )
 }
