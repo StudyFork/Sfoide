@@ -137,8 +137,8 @@ fun List<Result>.mapToPresentation(): List<UserItem> {
             cell = it.cell,
             email = it.email,
             coordinates = UserItem.CoordinatesItem(
-                latitude = it.location.coordinates.latitude,
-                longitude = it.location.coordinates.longitude
+                latitude = it.location.coordinates.latitude.toDouble(),
+                longitude = it.location.coordinates.longitude.toDouble()
             )
         )
     }

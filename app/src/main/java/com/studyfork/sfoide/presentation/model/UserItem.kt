@@ -16,7 +16,7 @@ data class UserItem(
 
     @Parcelize
     data class CoordinatesItem(
-        val latitude: String,
-        val longitude: String
+        val latitude: Double,
+        val longitude: Double
     ) : Parcelable
 }

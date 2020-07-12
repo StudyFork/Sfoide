@@ -72,6 +72,12 @@
                         tools:text="\uD83D\uDCE7 : email " />
                 </LinearLayout>
 
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="30dp" />
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

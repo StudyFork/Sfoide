@@ -3,6 +3,7 @@ package com.studyfork.sfoide.presentation.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.google.android.gms.maps.SupportMapFragment
 import com.studyfork.sfoide.R
 import com.studyfork.sfoide.base.BaseActivity
 import com.studyfork.sfoide.databinding.ActivityDetailBinding
@@ -10,16 +11,11 @@ import com.studyfork.sfoide.presentation.model.UserItem
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
+
 class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_detail) {
 
     private val detailViewModel by viewModel<DetailViewModel> {
         parametersOf(getUserItem())
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.model = detailViewModel
-
     }
 
     private fun getUserItem(): UserItem {
@@ -30,6 +26,14 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>(R.layout.activity_det
         } else {
             return userItem
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.model = detailViewModel
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(detailViewModel)
     }
 
     companion object {
