@@ -28,13 +28,22 @@
 
         <com.studyfork.sfoide.ui.widget.FriendInfoView
             android:id="@+id/fiv_friend_detail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_margin="20dp"
             app:friend="@{friend}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_friend_detail_picture" />
+
+        <fragment
+            android:id="@+id/map_friend_detail"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fiv_friend_detail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
