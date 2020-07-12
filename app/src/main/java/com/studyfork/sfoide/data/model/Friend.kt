@@ -1,5 +1,9 @@
 package com.studyfork.sfoide.data.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Friend(
     val id: String,
     val thumbnail: String,
@@ -11,9 +15,10 @@ data class Friend(
     val telephone: String,
     val mobilePhone: String,
     val coordinates: Coordinates
-)
+) : Parcelable
 
+@Parcelize
 class Coordinates(
     val latitude: String,
     val longitude: String
-)
+) : Parcelable
