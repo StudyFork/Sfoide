@@ -27,7 +27,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
-                bind:setCircleImageUrl="@{userItem.profile}"
+                bind:setCircleImageUrl="@{userItem.profileMedium}"
                 tools:background="@color/colorAccent" />
 
             <LinearLayout

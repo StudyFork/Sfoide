@@ -5,7 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class UserItem(
-    val profile: String,
+    val profileMedium: String,
+    val profileLarge: String,
     val title: String, //이름(나이) 성별 국가
     val phone: String,
     val cell: String,

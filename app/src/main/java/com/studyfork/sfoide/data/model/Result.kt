@@ -127,7 +127,8 @@ data class Result(
 fun List<Result>.mapToPresentation(): List<UserItem> {
     return map {
         UserItem(
-            profile = it.picture.medium,
+            profileMedium = it.picture.medium,
+            profileLarge = it.picture.large,
             //이름(나이) 성별 국가
             title = "${it.name.title}${it.name.first}${it.name.last}(${it.dob.age}) ${convertGenderToEmoji(
                 it.gender
