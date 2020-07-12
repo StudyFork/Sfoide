@@ -11,7 +11,7 @@ fun FriendsResponse.Result.toEntity(): Friend {
         name = this.name.toString(),
         age = this.dob?.age ?: 0,
         gender = this.gender ?: "",
-        country = this.location?.country ?: "'",
+        country = this.nat ?: "",
         email = this.email ?: "",
         telephone = this.phone ?: "",
         mobilePhone = this.cell ?: "",
