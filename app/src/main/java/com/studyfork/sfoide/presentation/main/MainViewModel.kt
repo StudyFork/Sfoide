@@ -14,6 +14,9 @@ class MainViewModel(
     private val _randomUsers = MutableLiveData<List<UserItem>>()
     val randomUsers: LiveData<List<UserItem>> get() = _randomUsers
 
+    private val _addRandomUsers = MutableLiveData<List<UserItem>>()
+    val addRandomUsers: LiveData<List<UserItem>> get() = _addRandomUsers
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
 
@@ -41,6 +44,32 @@ class MainViewModel(
     }
 
     private var page = 1
+    private var isAdding = false
+
+    fun addRandomUsers() {
+        if (isAdding) {
+            return
+        }
+
+        page++
+        isAdding = true
+
+        compositeDisposable.add(
+            userRepository.getRandomUsers(page)
+                .doOnSubscribe {
+                    showLoading()
+                }
+                .doOnTerminate {
+                    hideLoadingAndRefresh()
+                }
+                .subscribe({
+                    isAdding = false
+                    _addRandomUsers.postValue(it)
+                }) {
+                    Dlog.e(it.message)
+                }
+        )
+    }
 
     private fun showLoading() {
         _isLoading.value = true
@@ -50,5 +79,4 @@ class MainViewModel(
         _isLoading.value = false
         _isRefresh.value = false
     }
-
 }

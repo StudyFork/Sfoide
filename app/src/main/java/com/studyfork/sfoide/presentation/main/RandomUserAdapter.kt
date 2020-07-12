@@ -48,6 +48,16 @@ class RandomUserAdapter : RecyclerView.Adapter<BaseViewHolder<ViewDataBinding, U
         notifyDataSetChanged()
     }
 
+    fun addItems(items: List<UserItem>) {
+        val preItemSize = this.items.size
+
+        this.items.run {
+            addAll(items)
+        }
+
+        notifyItemRangeChanged(preItemSize - 1, this.items.size)
+    }
+
     class SampleViewHolder(parent: ViewGroup) :
         BaseViewHolder<ItemUserBinding, UserItem>(parent, R.layout.item_user) {
 
