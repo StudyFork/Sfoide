@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
 
-class FriendViewModel : ViewModel() {
+class FriendViewModel(
+    private val remoteFriendDataSource: RemoteFriendDataSource
+) : ViewModel() {
 
     private val _friendList = MutableLiveData<List<Friend>>()
     val friendList: LiveData<List<Friend>> = _friendList
@@ -18,7 +21,16 @@ class FriendViewModel : ViewModel() {
     }
 
     private fun fetchFriends() {
-        // todo
+        remoteFriendDataSource.getFriends(
+            pageNumber = 1,
+            itemCount = 20,
+            onSuccess = { friends ->
+                _friendList.value = friends
+            },
+            onError = {
+                // todo
+            }
+        )
     }
 
     fun onRefresh() {
