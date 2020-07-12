@@ -5,12 +5,15 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.studyfork.sfoide.ui.friend.FriendViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.friend.MainActivity">
+        tools:context=".ui.friend.FriendActivity">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/srl_main"
@@ -19,12 +22,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:onRefreshListener="@{() -> vm.onRefresh()}"
+            app:refreshing="@{vm.loading}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_friend" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

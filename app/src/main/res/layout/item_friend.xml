@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="friend"
+            type="com.studyfork.sfoide.data.model.Friend" />
     </data>
 
     <androidx.cardview.widget.CardView
