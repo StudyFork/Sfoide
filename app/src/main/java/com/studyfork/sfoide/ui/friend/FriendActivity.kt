@@ -9,8 +9,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.studyfork.sfoide.R
 import com.studyfork.sfoide.data.datasource.RemoteFriendDataSourceImpl
+import com.studyfork.sfoide.data.model.Friend
 import com.studyfork.sfoide.data.remote.RetrofitService
 import com.studyfork.sfoide.databinding.ActivityFriendBinding
+import com.studyfork.sfoide.ui.friend.detail.FriendDetailActivity
+import com.studyfork.sfoide.ui.utils.EventObserver
 
 class FriendActivity : AppCompatActivity() {
 
@@ -42,8 +45,19 @@ class FriendActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
-        viewModel.friendList.observe(this, Observer { friends ->
-            friendAdapter.submitList(friends)
-        })
+        with(viewModel) {
+            friendList.observe(this@FriendActivity, Observer { friends ->
+                friendAdapter.submitList(friends)
+            })
+
+            navigateDetailEvent.observe(
+                this@FriendActivity,
+                EventObserver(this@FriendActivity::navigateFriendDetailActivity)
+            )
+        }
+    }
+
+    private fun navigateFriendDetailActivity(friend: Friend) {
+        startActivity(FriendDetailActivity.createIntent(this, friend))
     }
 }

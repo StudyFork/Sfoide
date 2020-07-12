@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.model.Friend
 import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
+import com.studyfork.sfoide.ui.utils.Event
 
 class FriendViewModel(
     private val remoteFriendDataSource: RemoteFriendDataSource
@@ -15,6 +16,9 @@ class FriendViewModel(
 
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
+
+    private val _navigateDetailEvent = MutableLiveData<Event<Friend>>()
+    val navigateDetailEvent: LiveData<Event<Friend>> = _navigateDetailEvent
 
     init {
         fetchFriends()
@@ -38,6 +42,6 @@ class FriendViewModel(
     }
 
     fun navigateFriendDetail(friend: Friend) {
-        // todo
+        _navigateDetailEvent.value = Event(friend)
     }
 }
