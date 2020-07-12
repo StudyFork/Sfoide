@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import com.studyfork.sfoide.R
+import com.studyfork.sfoide.data.model.Friend
 import com.studyfork.sfoide.databinding.ViewFriendInfoBinding
 
 class FriendInfoView @JvmOverloads constructor(
@@ -21,6 +22,18 @@ class FriendInfoView @JvmOverloads constructor(
 
     init {
         initBinding()
+    }
+
+    var friend: Friend? = null
+        set(value) {
+            field = value
+            value?.let {
+                fetchFriend(value)
+            }
+        }
+
+    private fun fetchFriend(value: Friend) {
+        binding.friend = value
     }
 
     private fun initBinding() {

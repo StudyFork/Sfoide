@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="friend"
+            type="com.studyfork.sfoide.data.model.Friend" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,6 +20,7 @@
             android:id="@+id/tv_friend_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{friend.name}"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/tv_friend_email"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +33,7 @@
             android:id="@+id/tv_friend_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{friend.email}"
             app:layout_constraintBottom_toTopOf="@id/tv_friend_telephone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +44,7 @@
             android:id="@+id/tv_friend_telephone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{friend.telephone}"
             app:layout_constraintBottom_toTopOf="@id/tv_friend_mobile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +55,7 @@
             android:id="@+id/tv_friend_mobile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{friend.mobilePhone}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

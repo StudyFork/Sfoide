@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="friend"
             type="com.studyfork.sfoide.data.model.Friend" />
@@ -19,19 +20,21 @@
 
             <ImageView
                 android:id="@+id/iv_friend_thumbnail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:contentDescription="friend thumbnail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:loadUrl="@{friend.thumbnail}"
                 tools:src="@tools:sample/avatars" />
 
             <com.studyfork.sfoide.ui.widget.FriendInfoView
                 android:id="@+id/fiv_friend"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                app:friend="@{friend}"
                 app:layout_constraintBottom_toBottomOf="@id/iv_friend_thumbnail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_friend_thumbnail"
