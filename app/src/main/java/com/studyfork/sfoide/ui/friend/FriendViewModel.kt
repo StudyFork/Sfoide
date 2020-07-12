@@ -20,28 +20,43 @@ class FriendViewModel(
     private val _navigateDetailEvent = MutableLiveData<Event<Friend>>()
     val navigateDetailEvent: LiveData<Event<Friend>> = _navigateDetailEvent
 
+    private var pageNumber: Int = 1
+
     init {
-        fetchFriends()
+        fetchFriends(pageNumber)
     }
 
-    private fun fetchFriends() {
+    private fun fetchFriends(pageNumber: Int, itemCount: Int = ITEM_COUNT) {
         remoteFriendDataSource.getFriends(
-            pageNumber = 1,
-            itemCount = 20,
+            pageNumber = pageNumber,
+            itemCount = itemCount,
             onSuccess = { friends ->
-                _friendList.value = friends
+                _loading.value = false
+                _friendList.value = (_friendList.value ?: emptyList()) + friends
             },
             onError = {
+                _loading.value = false
                 // todo
             }
         )
     }
 
+    fun loadMoreFriends() {
+        fetchFriends(++pageNumber)
+    }
+
     fun onRefresh() {
-        // todo
+        _friendList.value = emptyList()
+        _loading.value = true
+        pageNumber = 1
+        fetchFriends(pageNumber)
     }
 
     fun navigateFriendDetail(friend: Friend) {
         _navigateDetailEvent.value = Event(friend)
+    }
+
+    companion object {
+        private const val ITEM_COUNT = 20
     }
 }

@@ -7,12 +7,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.studyfork.sfoide.R
 import com.studyfork.sfoide.data.datasource.RemoteFriendDataSourceImpl
 import com.studyfork.sfoide.data.model.Friend
 import com.studyfork.sfoide.data.remote.RetrofitService
 import com.studyfork.sfoide.databinding.ActivityFriendBinding
 import com.studyfork.sfoide.ui.friend.detail.FriendDetailActivity
+import com.studyfork.sfoide.ui.utils.EndlessRecyclerViewScrollListener
 import com.studyfork.sfoide.ui.utils.EventObserver
 
 class FriendActivity : AppCompatActivity() {
@@ -42,6 +44,11 @@ class FriendActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         friendAdapter = FriendAdapter(viewModel)
         binding.rvMain.adapter = friendAdapter
+        binding.rvMain.addOnScrollListener(object : EndlessRecyclerViewScrollListener(binding.rvMain.layoutManager!!) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
+                viewModel.loadMoreFriends()
+            }
+        })
     }
 
     private fun observeViewModel() {
