@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface FriendApi {
 
-    @GET("/")
+    @GET("api/")
     fun getFriends(
         @Query("page") page: Int,
         @Query("results") results: Int

@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitService {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://randomuser.me/api")
+        .baseUrl("https://randomuser.me/")
         .client(createOkHttpClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
