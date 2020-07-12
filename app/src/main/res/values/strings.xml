@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sfoide</string>
+
+    <string name="email_format">📧 : %s</string>
+    <string name="cell_format">☎️️ : %s</string>
+    <string name="phone_format">📱 : %s</string>
 </resources>
