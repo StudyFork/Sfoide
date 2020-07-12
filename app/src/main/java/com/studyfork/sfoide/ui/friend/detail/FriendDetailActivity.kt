@@ -14,7 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.studyfork.sfoide.R
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.databinding.ActivityFriendDetailBinding
 import com.studyfork.sfoide.ui.utils.EventObserver
 

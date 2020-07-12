@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.studyfork.sfoide.R
 import com.studyfork.sfoide.data.datasource.RemoteFriendDataSourceImpl
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.data.remote.RetrofitService
 import com.studyfork.sfoide.databinding.ActivityFriendBinding
 import com.studyfork.sfoide.ui.friend.detail.FriendDetailActivity

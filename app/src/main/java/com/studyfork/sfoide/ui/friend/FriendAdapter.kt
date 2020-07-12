@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.studyfork.sfoide.R
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.databinding.ItemFriendBinding
 
 class FriendAdapter(

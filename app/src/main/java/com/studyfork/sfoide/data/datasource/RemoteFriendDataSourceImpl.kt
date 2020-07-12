@@ -1,7 +1,7 @@
 package com.studyfork.sfoide.data.datasource
 
 import com.studyfork.sfoide.data.mapper.toEntity
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.data.remote.api.FriendApi
 import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
 import com.studyfork.sfoide.data.remote.response.FriendsResponse

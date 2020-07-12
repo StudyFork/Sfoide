@@ -1,6 +1,6 @@
 package com.studyfork.sfoide.data.remote.datasource
 
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 
 interface RemoteFriendDataSource {
 

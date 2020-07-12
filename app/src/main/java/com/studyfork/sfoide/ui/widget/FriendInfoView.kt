@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import com.studyfork.sfoide.R
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.databinding.ViewFriendInfoBinding
 
 class FriendInfoView @JvmOverloads constructor(

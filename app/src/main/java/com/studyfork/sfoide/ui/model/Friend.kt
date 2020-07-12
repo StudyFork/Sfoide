@@ -1,4 +1,4 @@
-package com.studyfork.sfoide.data.model
+package com.studyfork.sfoide.ui.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

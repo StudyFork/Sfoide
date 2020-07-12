@@ -1,7 +1,7 @@
 package com.studyfork.sfoide.data.mapper
 
-import com.studyfork.sfoide.data.model.Coordinates
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Coordinates
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.data.remote.response.FriendsResponse
 
 fun FriendsResponse.Result.toEntity(): Friend {

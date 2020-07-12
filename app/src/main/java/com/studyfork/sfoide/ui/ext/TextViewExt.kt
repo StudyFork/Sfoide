@@ -3,7 +3,7 @@ package com.studyfork.sfoide.ui.ext
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.studyfork.sfoide.R
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 
 private const val MALE = "male"
 

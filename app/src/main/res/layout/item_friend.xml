@@ -7,7 +7,7 @@
 
         <variable
             name="friend"
-            type="com.studyfork.sfoide.data.model.Friend" />
+            type="com.studyfork.sfoide.ui.model.Friend" />
     </data>
 
     <androidx.cardview.widget.CardView

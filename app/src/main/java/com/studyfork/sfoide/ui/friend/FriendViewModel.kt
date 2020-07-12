@@ -3,7 +3,7 @@ package com.studyfork.sfoide.ui.friend
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.studyfork.sfoide.data.model.Friend
+import com.studyfork.sfoide.ui.model.Friend
 import com.studyfork.sfoide.data.remote.datasource.RemoteFriendDataSource
 import com.studyfork.sfoide.ui.utils.Event
 
