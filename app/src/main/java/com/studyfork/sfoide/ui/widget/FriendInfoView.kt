@@ -45,4 +45,34 @@ class FriendInfoView @JvmOverloads constructor(
         )
         addView(binding.root)
     }
+
+    fun setOnPhoneClickListener(onPhoneClickListener: OnPhoneClickListener) {
+        binding.tvFriendMobile.setOnClickListener {
+            friend?.mobilePhone?.let {
+                onPhoneClickListener.onPhoneClick(it)
+            }
+        }
+
+        binding.tvFriendTelephone.setOnClickListener {
+            friend?.telephone?.let {
+                onPhoneClickListener.onPhoneClick(it)
+            }
+        }
+    }
+
+    fun setOnEmailClickListener(onEmailClickListener: OnEmailClickListener) {
+        binding.tvFriendEmail.setOnClickListener {
+            friend?.email?.let {
+                onEmailClickListener.onEmailClick(it)
+            }
+        }
+    }
+
+    interface OnPhoneClickListener {
+        fun onPhoneClick(phoneNumber: String)
+    }
+
+    interface OnEmailClickListener {
+        fun onEmailClick(email: String)
+    }
 }
