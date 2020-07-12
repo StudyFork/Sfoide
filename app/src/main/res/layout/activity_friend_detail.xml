@@ -8,6 +8,10 @@
         <variable
             name="friend"
             type="com.studyfork.sfoide.data.model.Friend" />
+
+        <variable
+            name="vm"
+            type="com.studyfork.sfoide.ui.friend.detail.FriendDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +38,9 @@
             app:friend="@{friend}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_friend_detail_picture" />
+            app:layout_constraintTop_toBottomOf="@id/iv_friend_detail_picture"
+            app:onEmailClickListener="@{(email) -> vm.navigateEmail(email)}"
+            app:onPhoneClickListener="@{(phoneNumber) -> vm.navigatePhone(phoneNumber)}" />
 
         <fragment
             android:id="@+id/map_friend_detail"
