@@ -9,12 +9,17 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface RandomUserApi {
 
     @GET("api/")
-    fun getRandomUsers(): Single<RandomUserResponse>
+    fun getRandomUsers(
+        @Query(value = "page") page: Int = 1,
+        @Query(value = "results") results: Int = 10,
+        @Query(value = "seed") seed: String = "abc"
+    ): Single<RandomUserResponse>
 
     companion object {
         private const val API_URL = "https://randomuser.me/"

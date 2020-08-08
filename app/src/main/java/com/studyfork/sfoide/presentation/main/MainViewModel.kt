@@ -1,8 +1,7 @@
-package com.studyfork.sfoide
+package com.studyfork.sfoide.presentation.main
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.remote.RandomUserApi
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -10,15 +9,11 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class MainActivity : AppCompatActivity() {
+class MainViewModel : ViewModel() {
     private val disposeBag = CompositeDisposable()
+    private val api = RandomUserApi.create()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val api = RandomUserApi.create()
-
+    fun getRandomUsers() {
         api.getRandomUsers()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -28,5 +23,10 @@ class MainActivity : AppCompatActivity() {
                 Log.e(MainActivity::class.java.simpleName, "getRandomUsers failed", it)
             })
             .addTo(disposeBag)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposeBag.dispose()
     }
 }
