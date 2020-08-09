@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.studyfork.sfoide.presentation.detail.DetailViewModel" />
+
+        <variable
+            name="viewModel"
+            type="DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="64dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@{viewModel.user.name}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_profile"
+            tools:text="PeggyWells" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.user.email}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="email@example.com" />
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.user.phone}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_cellphone_number"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            tools:text="(898)-992-6118" />
+
+        <TextView
+            android:id="@+id/tv_cellphone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.user.cell}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
+            tools:text="(238)-052-6435" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

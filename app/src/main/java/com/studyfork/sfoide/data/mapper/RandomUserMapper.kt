@@ -7,16 +7,15 @@ object RandomUserMapper {
     fun fromResult(result: Result) =
         RandomUser(
             cell = result.cell ?: "",
-            dob = result.dob ?: Dob(),
+            age = result.dob?.age ?: 0,
             email = result.email ?: "",
             gender = result.gender ?: "",
-            id = result.id ?: Id(),
-            location = result.location ?: Location(),
-            login = result.login ?: Login(),
-            name = result.name ?: Name(),
+            id = result.id?.value ?: "",
+            latitude = result.location?.coordinates?.latitude ?: "",
+            longitude = result.location?.coordinates?.longitude ?: "",
+            name = result.name?.first ?: "" + result.name?.last ?: "",
             nat = result.nat ?: "",
             phone = result.phone ?: "",
-            picture = result.picture ?: Picture(),
-            registered = result.registered ?: Registered()
+            picture = result.picture?.medium ?: ""
         )
 }

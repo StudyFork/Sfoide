@@ -1,18 +1,19 @@
 package com.studyfork.sfoide.data.model
 
-import com.studyfork.sfoide.data.remote.response.*
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class RandomUser(
     val cell: String,
-    val dob: Dob,
+    val age: Int,
     val email: String,
     val gender: String,
-    val id: Id,
-    val location: Location,
-    val login: Login,
-    val name: Name,
+    val id: String,
+    val latitude: String,
+    val longitude: String,
+    val name: String,
     val nat: String,
     val phone: String,
-    val picture: Picture,
-    val registered: Registered
-)
+    val picture: String
+) : Parcelable

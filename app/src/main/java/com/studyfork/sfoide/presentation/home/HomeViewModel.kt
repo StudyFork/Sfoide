@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.mapper.RandomUserMapper
 import com.studyfork.sfoide.data.model.RandomUser
 import com.studyfork.sfoide.data.remote.RandomUserApi
+import com.studyfork.sfoide.presentation.utils.Event
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -19,6 +20,9 @@ class HomeViewModel : ViewModel() {
 
     private val _userList = MutableLiveData<List<RandomUser>>()
     val userList: LiveData<List<RandomUser>> = _userList
+
+    private val _moveToDetailScreenEvent = MutableLiveData<Event<RandomUser>>()
+    val moveToDetailScreenEvent: LiveData<Event<RandomUser>> = _moveToDetailScreenEvent
 
     fun getRandomUsers() {
         api.getRandomUsers()
@@ -34,6 +38,10 @@ class HomeViewModel : ViewModel() {
                 Log.e(TAG, "getRandomUsers failed", it)
             })
             .addTo(disposeBag)
+    }
+
+    fun onItemClick(randomUser: RandomUser) {
+        _moveToDetailScreenEvent.value = Event(randomUser)
     }
 
     override fun onCleared() {
