@@ -5,6 +5,9 @@
 
         <import type="com.studyfork.sfoide.presentation.detail.DetailViewModel" />
 
+        <import type="com.studyfork.sfoide.presentation.databinding.EmojiBindingHelper" />
+        \
+
         <variable
             name="viewModel"
             type="DetailViewModel" />
@@ -41,15 +44,57 @@
             tools:text="PeggyWells" />
 
         <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{EmojiBindingHelper.INSTANCE.getGenderEmoji(viewModel.user.gender)}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_name"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            tools:text="@string/male_emoji" />
+
+        <TextView
+            android:id="@+id/tv_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{EmojiBindingHelper.INSTANCE.getCountryEmoji(viewModel.user.nat)}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toEndOf="@id/tv_gender"
+            app:layout_constraintTop_toTopOf="@id/tv_name"
+            tools:text="@string/us_emoji" />
+
+        <TextView
+            android:id="@+id/tv_email_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_emoji"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
             android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.user.email}"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
-            app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_email_emoji"
+            app:layout_constraintStart_toEndOf="@id/tv_email_emoji"
+            app:layout_constraintTop_toTopOf="@id/tv_email_emoji"
             tools:text="email@example.com" />
+
+        <TextView
+            android:id="@+id/tv_phone_number_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/telephone_emoji"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_cellphone_number"
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_email_emoji" />
 
         <TextView
             android:id="@+id/tv_phone_number"
@@ -57,10 +102,19 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.user.phone}"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_cellphone_number"
+            app:layout_constraintBottom_toBottomOf="@id/tv_phone_number_emoji"
+            app:layout_constraintStart_toEndOf="@id/tv_phone_number_emoji"
+            app:layout_constraintTop_toTopOf="@id/tv_phone_number_emoji"
+            tools:text="222-22-2-222" />
+
+        <TextView
+            android:id="@+id/tv_cellphone_number_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mobile_phone_emoji"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_email"
-            tools:text="(898)-992-6118" />
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_number_emoji" />
 
         <TextView
             android:id="@+id/tv_cellphone_number"
@@ -68,9 +122,10 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.user.cell}"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
-            tools:text="(238)-052-6435" />
+            app:layout_constraintBottom_toBottomOf="@id/tv_cellphone_number_emoji"
+            app:layout_constraintStart_toEndOf="@id/tv_cellphone_number_emoji"
+            app:layout_constraintTop_toTopOf="@id/tv_cellphone_number_emoji"
+            tools:text="222-22-2-222" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
