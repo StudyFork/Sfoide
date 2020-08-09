@@ -25,4 +25,6 @@
     <string name="telephone_emoji">\u260E\uFE0F</string>
     <string name="mobile_phone_emoji">\uD83D\uDCF1</string>
     <string name="email_emoji">\uD83D\uDCE7</string>
+
+    <string name="back_press_guide_message">앱을 종료하시려면 한번 더 눌러주세요</string>
 </resources>
