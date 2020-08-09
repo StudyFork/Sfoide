@@ -2,6 +2,7 @@ package com.studyfork.sfoide.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
@@ -14,17 +15,21 @@ abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes private val layoutRe
     protected lateinit var binding: B
         private set
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         initBinding()
+        return binding.root
     }
 
     private fun initBinding() {
         binding = DataBindingUtil.inflate<B>(
             LayoutInflater.from(requireContext()),
             layoutResId,
-            binding.root.parent as ViewGroup,
+            null,
             false
         ).apply {
             lifecycleOwner = viewLifecycleOwner

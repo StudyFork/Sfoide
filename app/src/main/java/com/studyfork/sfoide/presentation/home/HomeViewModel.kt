@@ -5,9 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.mapper.RandomUserMapper
+import com.studyfork.sfoide.data.model.RandomUser
 import com.studyfork.sfoide.data.remote.RandomUserApi
-import com.studyfork.sfoide.data.remote.response.RandomUserResponse
-import com.studyfork.sfoide.presentation.MainActivity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
@@ -18,8 +17,8 @@ class HomeViewModel : ViewModel() {
     private val disposeBag = CompositeDisposable()
     private val api = RandomUserApi.create()
 
-    private val _userList = MutableLiveData<List<RandomUserResponse>>()
-    val userList: LiveData<List<RandomUserResponse>> = _userList
+    private val _userList = MutableLiveData<List<RandomUser>>()
+    val userList: LiveData<List<RandomUser>> = _userList
 
     fun getRandomUsers() {
         api.getRandomUsers()
@@ -29,6 +28,7 @@ class HomeViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(onSuccess = {
+                _userList.value = it
                 Log.d(TAG, "getRandomUsers success : $it")
             }, onError = {
                 Log.e(TAG, "getRandomUsers failed", it)
