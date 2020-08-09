@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.studyfork.sfoide.data.mapper.RandomUserMapper
 import com.studyfork.sfoide.data.model.RandomUser
 import com.studyfork.sfoide.data.remote.RandomUserApi
+import com.studyfork.sfoide.presentation.base.BaseViewModel
 import com.studyfork.sfoide.presentation.utils.Event
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -14,8 +15,7 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class HomeViewModel : ViewModel() {
-    private val disposeBag = CompositeDisposable()
+class HomeViewModel : BaseViewModel() {
     private val api = RandomUserApi.create()
 
     private val _userList = MutableLiveData<List<RandomUser>>()
@@ -42,11 +42,6 @@ class HomeViewModel : ViewModel() {
 
     fun onItemClick(randomUser: RandomUser) {
         _moveToDetailScreenEvent.value = Event(randomUser)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        disposeBag.dispose()
     }
 
     companion object {
