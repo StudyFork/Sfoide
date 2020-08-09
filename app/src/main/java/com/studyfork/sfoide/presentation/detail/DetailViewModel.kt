@@ -12,6 +12,10 @@ class DetailViewModel : ViewModel() {
     private val _user = MutableLiveData<RandomUser>()
     val user: LiveData<RandomUser> = _user
 
+    fun setUser(user: RandomUser) {
+        _user.value = user
+    }
+
     override fun onCleared() {
         super.onCleared()
         disposeBag.dispose()

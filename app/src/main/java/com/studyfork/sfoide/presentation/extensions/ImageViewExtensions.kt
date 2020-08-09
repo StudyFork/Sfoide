@@ -11,6 +11,16 @@ fun ImageView.loadCircleImage(
 ) {
     Glide.with(context)
         .load(imageUrl ?: "")
+        .transition(DrawableTransitionOptions.withCrossFade())
+        .circleCrop()
+        .into(this)
+}
+
+fun ImageView.loadCircleThumbnail(
+    imageUrl: String?
+) {
+    Glide.with(context)
+        .load(imageUrl ?: "")
         .thumbnail(THUMBNAIL_VALUE)
         .transition(DrawableTransitionOptions.withCrossFade())
         .circleCrop()

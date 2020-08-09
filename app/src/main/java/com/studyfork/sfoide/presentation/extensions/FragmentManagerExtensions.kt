@@ -7,13 +7,16 @@ import androidx.fragment.app.FragmentManager
 
 inline fun <reified T : Fragment> FragmentManager.replaceFragment(
     @IdRes containerViewId: Int,
+    addToBackStack: Boolean = false,
     vararg params: Pair<String, Any?>,
     tag: String = T::class.java.simpleName
 ): T? {
     return findFragment() ?: T::class.java.newInstance().also { newFragment ->
         newFragment.arguments = bundleOf(*params)
         beginTransaction()
-            .replace(containerViewId, newFragment, tag)
+            .replace(containerViewId, newFragment, tag).apply {
+                if (addToBackStack) addToBackStack(null)
+            }
             .commitAllowingStateLoss()
     }
 }

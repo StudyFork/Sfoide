@@ -35,7 +35,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 event.getContentIfNotHandled()?.let { user ->
                     parentFragmentManager.replaceFragment<DetailFragment>(
                         R.id.container,
-                        "user" to user
+                        true,
+                        DetailFragment.ARG_USER to user
                     )
                 }
             }

@@ -16,6 +16,6 @@ object RandomUserMapper {
             name = result.name?.first ?: "" + result.name?.last ?: "",
             nat = result.nat ?: "",
             phone = result.phone ?: "",
-            picture = result.picture?.medium ?: ""
+            picture = result.picture?.large ?: ""
         )
 }

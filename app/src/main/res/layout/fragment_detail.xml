@@ -18,6 +18,7 @@
 
         <ImageView
             android:id="@+id/iv_profile"
+            loadImageCircleCrop="@{viewModel.user.picture}"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_margin="64dp"
