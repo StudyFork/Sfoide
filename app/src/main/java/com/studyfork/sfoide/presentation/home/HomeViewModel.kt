@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.studyfork.sfoide.data.mapper.RandomUserMapper
 import com.studyfork.sfoide.data.remote.RandomUserApi
 import com.studyfork.sfoide.data.remote.response.RandomUserResponse
 import com.studyfork.sfoide.presentation.MainActivity
@@ -22,12 +23,15 @@ class HomeViewModel : ViewModel() {
 
     fun getRandomUsers() {
         api.getRandomUsers()
+            .map {
+                it.results.map { result -> RandomUserMapper.fromResult(result) }
+            }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(onSuccess = {
-                Log.d(MainActivity::class.java.simpleName, "getRandomUsers success : $it")
+                Log.d(TAG, "getRandomUsers success : $it")
             }, onError = {
-                Log.e(MainActivity::class.java.simpleName, "getRandomUsers failed", it)
+                Log.e(TAG, "getRandomUsers failed", it)
             })
             .addTo(disposeBag)
     }
@@ -35,5 +39,9 @@ class HomeViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         disposeBag.dispose()
+    }
+
+    companion object {
+        val TAG: String = HomeViewModel::class.java.simpleName
     }
 }
