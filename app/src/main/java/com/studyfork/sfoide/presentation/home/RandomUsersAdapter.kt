@@ -1,6 +1,5 @@
 package com.studyfork.sfoide.presentation.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,7 +9,6 @@ import com.studyfork.sfoide.data.model.RandomUser
 import com.studyfork.sfoide.databinding.ItemUserBinding
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
-
 
 class RandomUsersAdapter :
     ListAdapter<RandomUser, RandomUsersAdapter.RandomUserViewHolder>(DiffCallback()) {

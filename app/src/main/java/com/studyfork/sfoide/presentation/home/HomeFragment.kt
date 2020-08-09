@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.studyfork.sfoide.R
 import com.studyfork.sfoide.databinding.FragmentHomeBinding
 import com.studyfork.sfoide.presentation.base.BaseFragment
@@ -17,13 +19,39 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initHomeViewModel()
+        viewModel.initialLoad()
+        initRecyclerView()
+        listenSwipeRefresh()
+    }
 
-        viewModel.getRandomUsers()
-
+    private fun initRecyclerView() {
         binding.rvRandomUsers.adapter = RandomUsersAdapter().apply {
             itemClicks.throttleFirstWithHalfSecond()
                 .subscribe { randomUser -> viewModel.onItemClick(randomUser) }
                 .addTo(disposeBag)
+        }
+
+        binding.rvRandomUsers.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+                val layoutManager = recyclerView.layoutManager as? LinearLayoutManager
+                layoutManager ?: return
+
+                if (layoutManager.findLastVisibleItemPosition() == layoutManager.itemCount - HomeViewModel.PAGING_OFFSET &&
+                    !viewModel.isLoadingMore
+                ) {
+                    viewModel.loadMore()
+                }
+
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
+
+    private fun listenSwipeRefresh() {
+        binding.srlUser.setOnRefreshListener {
+            viewModel.refresh()
         }
     }
 
@@ -38,6 +66,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                         true,
                         DetailFragment.ARG_USER to user
                     )
+                }
+            }
+
+            loadingEvent.observe(viewLifecycleOwner) { event ->
+                event.getContentIfNotHandled()?.let {
+                    binding.srlUser.isRefreshing = true
+                }
+            }
+
+            loadFinishEvent.observe(viewLifecycleOwner) { event ->
+                event.getContentIfNotHandled()?.let {
+                    binding.srlUser.isRefreshing = false
                 }
             }
         }
