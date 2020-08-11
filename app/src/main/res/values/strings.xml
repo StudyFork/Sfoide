@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Sfoide</string>
+
+    <string name="au_emoji">🇦🇺</string>
+    <string name="br_emoji">🇧🇷</string>
+    <string name="ca_emoji">🇨🇦</string>
+    <string name="ch_emoji">🇨🇭</string>
+    <string name="de_emoji">🇩🇪</string>
+    <string name="dk_emoji">🇩🇰</string>
+    <string name="es_emoji">🇪🇸</string>
+    <string name="fi_emoji">🇫🇮</string>
+    <string name="fr_emoji">🇫🇷</string>
+    <string name="gb_emoji">🇬🇧</string>
+    <string name="ie_emoji">🇮🇪</string>
+    <string name="ir_emoji">🇮🇷</string>
+    <string name="no_emoji">🇳🇴</string>
+    <string name="nl_emoji">🇳🇱</string>
+    <string name="nz_emoji">🇳🇿</string>
+    <string name="tr_emoji">🇹🇷</string>
+    <string name="us_emoji">🇺🇸</string>
+
+    <string name="male_emoji">🙋‍♂️</string>
+    <string name="female_emoji">🙋‍♀️</string>
+
+    <string name="telephone_emoji">☎️</string>
+    <string name="mobile_phone_emoji">📱</string>
+    <string name="email_emoji">📧</string>
+    <string name="hi_emoji">👋</string>
+
+    <string name="back_press_guide_message">앱을 종료하시려면 한번 더 눌러주세요</string>
 </resources>

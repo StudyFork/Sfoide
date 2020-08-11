@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.studyfork.sfoide.data.model.RandomUser" />
+
+        <import type="com.studyfork.sfoide.presentation.databinding.EmojiBindingHelper" />
+
+        <variable
+            name="user"
+            type="RandomUser" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                loadThumbnailCircleCrop="@{user.picture}"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{user.name}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_email"
+                app:layout_constraintStart_toEndOf="@id/iv_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="PeggyWells" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{EmojiBindingHelper.INSTANCE.getGenderEmoji(user.gender)}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_name"
+                app:layout_constraintTop_toTopOf="@id/tv_name"
+                tools:text="@string/male_emoji" />
+
+            <TextView
+                android:id="@+id/tv_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{EmojiBindingHelper.INSTANCE.getCountryEmoji(user.nat)}"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toEndOf="@id/tv_gender"
+                app:layout_constraintTop_toTopOf="@id/tv_name"
+                tools:text="@string/us_emoji" />
+
+            <TextView
+                android:id="@+id/tv_email_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_emoji"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.email}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_email_emoji"
+                app:layout_constraintStart_toEndOf="@id/tv_email_emoji"
+                app:layout_constraintTop_toTopOf="@id/tv_email_emoji"
+                tools:text="email@example.com" />
+
+            <TextView
+                android:id="@+id/tv_phone_number_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/telephone_emoji"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/tv_cellphone_number"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_email_emoji" />
+
+            <TextView
+                android:id="@+id/tv_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.phone}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_phone_number_emoji"
+                app:layout_constraintStart_toEndOf="@id/tv_phone_number_emoji"
+                app:layout_constraintTop_toTopOf="@id/tv_phone_number_emoji"
+                tools:text="222-22-2-222" />
+
+            <TextView
+                android:id="@+id/tv_cellphone_number_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mobile_phone_emoji"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_phone_number_emoji" />
+
+            <TextView
+                android:id="@+id/tv_cellphone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.cell}"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_cellphone_number_emoji"
+                app:layout_constraintStart_toEndOf="@id/tv_cellphone_number_emoji"
+                app:layout_constraintTop_toTopOf="@id/tv_cellphone_number_emoji"
+                tools:text="222-22-2-222" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
