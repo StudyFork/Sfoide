@@ -1,30 +1,31 @@
 <resources>
     <string name="app_name">Sfoide</string>
 
-    <string name="au_emoji">\uD83C\uDDE6\uD83C\uDDFA</string>
-    <string name="br_emoji">\uD83C\uDDE7\uD83C\uDDF7</string>
-    <string name="ca_emoji">\uD83C\uDDE8\uD83C\uDDE6</string>
-    <string name="ch_emoji">\uD83C\uDDE8\uD83C\uDDED</string>
-    <string name="de_emoji">\uD83C\uDDE9\uD83C\uDDEA</string>
-    <string name="dk_emoji">\uD83C\uDDE9\uD83C\uDDF0</string>
-    <string name="es_emoji">\uD83C\uDDEA\uD83C\uDDF8</string>
-    <string name="fi_emoji">\uD83C\uDDEB\uD83C\uDDEE</string>
-    <string name="fr_emoji">\uD83C\uDDEB\uD83C\uDDF7</string>
-    <string name="gb_emoji">\uD83C\uDDEC\uD83C\uDDE7</string>
-    <string name="ie_emoji">\uD83C\uDDEE\uD83C\uDDEA</string>
-    <string name="ir_emoji">\uD83C\uDDEE\uD83C\uDDF7</string>
-    <string name="no_emoji">\uD83C\uDDF3\uD83C\uDDF4</string>
-    <string name="nl_emoji">\uD83C\uDDF3\uD83C\uDDF1</string>
-    <string name="nz_emoji">\uD83C\uDDF3\uD83C\uDDFF</string>
-    <string name="tr_emoji">\uD83C\uDDF9\uD83C\uDDF7</string>
-    <string name="us_emoji">\uD83C\uDDFA\uD83C\uDDF8</string>
+    <string name="au_emoji">🇦🇺</string>
+    <string name="br_emoji">🇧🇷</string>
+    <string name="ca_emoji">🇨🇦</string>
+    <string name="ch_emoji">🇨🇭</string>
+    <string name="de_emoji">🇩🇪</string>
+    <string name="dk_emoji">🇩🇰</string>
+    <string name="es_emoji">🇪🇸</string>
+    <string name="fi_emoji">🇫🇮</string>
+    <string name="fr_emoji">🇫🇷</string>
+    <string name="gb_emoji">🇬🇧</string>
+    <string name="ie_emoji">🇮🇪</string>
+    <string name="ir_emoji">🇮🇷</string>
+    <string name="no_emoji">🇳🇴</string>
+    <string name="nl_emoji">🇳🇱</string>
+    <string name="nz_emoji">🇳🇿</string>
+    <string name="tr_emoji">🇹🇷</string>
+    <string name="us_emoji">🇺🇸</string>
 
-    <string name="male_emoji">\uD83D\uDE4B\u200D\u2642\uFE0F</string>
-    <string name="female_emoji">\uD83D\uDE4B\u200D\u2640\uFE0F</string>
+    <string name="male_emoji">🙋‍♂️</string>
+    <string name="female_emoji">🙋‍♀️</string>
 
-    <string name="telephone_emoji">\u260E\uFE0F</string>
-    <string name="mobile_phone_emoji">\uD83D\uDCF1</string>
-    <string name="email_emoji">\uD83D\uDCE7</string>
+    <string name="telephone_emoji">☎️</string>
+    <string name="mobile_phone_emoji">📱</string>
+    <string name="email_emoji">📧</string>
+    <string name="hi_emoji">👋</string>
 
     <string name="back_press_guide_message">앱을 종료하시려면 한번 더 눌러주세요</string>
 </resources>

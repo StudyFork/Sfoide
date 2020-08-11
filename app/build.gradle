@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+def keyPropertiesFile = rootProject.file("googlemap.properties")
+def keyProperties = new Properties()
+keyProperties.load(new FileInputStream(keyPropertiesFile))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
@@ -22,6 +26,11 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            resValue "string", "google_map_key", (keyProperties['googleMapKey'] ?: "")
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -73,6 +82,9 @@ dependencies {
 
     // viewModel and liveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // googleMap
+    implementation "com.google.android.libraries.maps:maps:$google_map_version"
 
     // room
     implementation "androidx.room:room-runtime:$room_version"

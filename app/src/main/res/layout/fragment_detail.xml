@@ -6,7 +6,6 @@
         <import type="com.studyfork.sfoide.presentation.detail.DetailViewModel" />
 
         <import type="com.studyfork.sfoide.presentation.databinding.EmojiBindingHelper" />
-        \
 
         <variable
             name="viewModel"
@@ -126,6 +125,14 @@
             app:layout_constraintStart_toEndOf="@id/tv_cellphone_number_emoji"
             app:layout_constraintTop_toTopOf="@id/tv_cellphone_number_emoji"
             tools:text="222-22-2-222" />
+
+        <FrameLayout
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cellphone_number" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
