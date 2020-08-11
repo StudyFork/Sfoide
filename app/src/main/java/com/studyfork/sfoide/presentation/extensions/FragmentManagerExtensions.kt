@@ -21,6 +21,22 @@ inline fun <reified T : Fragment> FragmentManager.replaceFragment(
     }
 }
 
+inline fun <reified T : Fragment> FragmentManager.addFragment(
+    @IdRes containerViewId: Int,
+    addToBackStack: Boolean = false,
+    vararg params: Pair<String, Any?>,
+    tag: String = T::class.java.simpleName
+): T? {
+    return findFragment() ?: T::class.java.newInstance().also { newFragment ->
+        newFragment.arguments = bundleOf(*params)
+        beginTransaction()
+            .add(containerViewId, newFragment, tag).apply {
+                if (addToBackStack) addToBackStack(null)
+            }
+            .commitAllowingStateLoss()
+    }
+}
+
 inline fun <reified T> FragmentManager.findFragment(
     tag: String = T::class.java.simpleName
 ): T? {

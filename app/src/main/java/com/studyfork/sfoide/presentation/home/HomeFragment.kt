@@ -10,7 +10,7 @@ import com.studyfork.sfoide.R
 import com.studyfork.sfoide.databinding.FragmentHomeBinding
 import com.studyfork.sfoide.presentation.base.BaseFragment
 import com.studyfork.sfoide.presentation.detail.DetailFragment
-import com.studyfork.sfoide.presentation.extensions.replaceFragment
+import com.studyfork.sfoide.presentation.extensions.addFragment
 import com.studyfork.sfoide.presentation.extensions.throttleFirstWithHalfSecond
 import io.reactivex.rxjava3.kotlin.addTo
 
@@ -61,7 +61,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         with(viewModel) {
             moveToDetailScreenEvent.observe(viewLifecycleOwner) { event ->
                 event.getContentIfNotHandled()?.let { user ->
-                    parentFragmentManager.replaceFragment<DetailFragment>(
+                    parentFragmentManager.addFragment<DetailFragment>(
                         R.id.container,
                         true,
                         DetailFragment.ARG_USER to user
